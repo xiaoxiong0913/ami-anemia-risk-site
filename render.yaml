@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: hf-icu-risk-translation
+    env: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 1 --threads 4 --timeout 120 -b 0.0.0.0:$PORT app:app
